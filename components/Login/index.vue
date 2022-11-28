@@ -15,7 +15,7 @@
           </el-form-item>
           <el-form-item>
             <div class="forget">
-              <a @click="goForget">忘记密码？</a>
+              <a @click="goForget" href="#">忘记密码？</a>
             </div>
           </el-form-item>
           <el-form-item>
@@ -60,7 +60,15 @@ export default {
         });
       },
     goForget() {
-      console.log('111!');
+      this.$alert('管理员电话：18111629666', '请联系管理员重置密码', {
+          confirmButtonText: '确定',
+          // callback: action => {
+          //   this.$message({
+          //     type: 'info',
+          //     message: `action: ${ action }`
+          //   });
+          // }
+        });
     },
   }
 }
