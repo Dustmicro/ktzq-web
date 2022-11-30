@@ -52,7 +52,11 @@ export default {
     onSubmit(form) {
         this.$refs[form].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            console.log(this.form.userName,this.form.passWords);
+            window.localStorage.setItem("token",'后端返回的token')
+            var token = window.localStorage.getItem("token")
+            console.log('token:',token);
+            this.$nuxt.$loading.start()
           } else {
             console.log('error submit!!');
             return false;
