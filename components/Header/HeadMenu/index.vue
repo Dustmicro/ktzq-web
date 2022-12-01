@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <Home></Home>
-    
-  </div>
+  
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+
+  name: 'HeadMenu'
 }
 </script>
+
+<style>
+
+</style>
