@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-header class="flex justify-between items-center py-1 bg-gray-200">
+      <el-header class="flex justify-between items-center py-1 bg-gray-300">
         <HeadLogo></HeadLogo>
         <HeadMenu></HeadMenu>
         <HeadInfo></HeadInfo>
@@ -25,6 +25,8 @@
   }
 </script>
 
-<style>
-
+<style scoped>
+  .el-header {
+    padding: 1rem 2rem;
+  }
 </style>

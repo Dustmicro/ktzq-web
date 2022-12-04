@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <div v-for="item in menuList" :key="item.id">
-      <MenuItem :item=item></MenuItem>
-    </div>
+  <div class="h-full bg-gray-300">
+    <ul>
+      <li 
+        @click="menuItemClick(item)" 
+        :class="[menuActiveItem===item.id ? 'bg-white text-green-400' : '', 'hover:bg-white hover:text-green-400']" 
+        v-for="item in menuList" 
+        :key="item.id"
+      >
+        <MenuItem :item=item></MenuItem>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -13,30 +20,45 @@ export default {
   components: {
     MenuItem
   },
+
   data() {
     return {
+      menuActiveItem: 0,
       menuList: [
+        {
+          id: 0,
+          title: '首页',
+          icon: 'a',
+          url: 'index'
+        },
         {
           id: 1,
           title: '基础设置',
           icon: 'a',
-          code: 1
+          url: 'basicSetting'
         },
         {
           id: 2,
           title: '组织管理',
           icon: 'b',
-          code: 2
+          url: 'orgMang'
         },
         {
           id: 3,
           title: '收费管理',
           icon: 'c',
-          code: 3
+          url: 'costMang'
         },
       ]
     }
   },
+
+  methods: {
+    menuItemClick: function(item) {
+      this.menuActiveItem = item.id
+      this.$router.push(item.url)
+    }
+  }
 }
 </script>
 

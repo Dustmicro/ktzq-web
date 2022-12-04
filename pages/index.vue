@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Home></Home>
+  <div class="h-full">
+    <!-- <Home></Home> -->
   </div>
 </template>
 

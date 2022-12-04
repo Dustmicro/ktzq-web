@@ -7,7 +7,7 @@
           <AsideMenu></AsideMenu>
         </div>
         <div class="p-10 flex-1">
-          <IndexContent></IndexContent>
+          <NuxtChild />
         </div>
       </div>
       <Footer></Footer>
@@ -16,16 +16,11 @@
 </template>
 
 <script>
-  import Header from '../Header'
-  import AsideMenu from '../AsideMenu'
-  import IndexContent from '../IndexContent'
-  import Footer from '../Footer'
-
   export default {
-    name: 'Home',
-    components: {
-      Header,
-      AsideMenu,
+    name: 'menu',
+
+    asyncData({redirect}) {
+      redirect('/menu/index')
     }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-10 pl-8 leading-10 cursor-pointer">
     <span>{{item.icon}}</span>
     <span>{{item.title}}</span>
   </div>
