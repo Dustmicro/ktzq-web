@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-header class="flex">
+      <el-header class="flex justify-between items-center py-1 bg-gray-200">
         <HeadLogo></HeadLogo>
         <HeadMenu></HeadMenu>
         <HeadInfo></HeadInfo>

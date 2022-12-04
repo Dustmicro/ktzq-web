@@ -1,11 +1,15 @@
 <template>
   <div>
-    <Home></Home>
+    footer
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'Footer'
 }
 </script>
+
+<style>
+
+</style>

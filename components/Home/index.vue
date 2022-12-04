@@ -1,23 +1,24 @@
 <template>
   <div>
-    <el-container>
+    <div class="h-full">
       <Header></Header>
-      <el-container>
+      <div class="h-full">
         <el-aside width="200px">
           <AsideMenu></AsideMenu>
         </el-aside>
-        <el-container>
-          <el-main>Main</el-main>
-        </el-container>
-      </el-container>
-      <el-footer>Footer</el-footer>
-    </el-container>
+        <div>
+          <div>Main</div>
+          <Footer></Footer>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import Header from './Header'
-  import AsideMenu from './AsideMenu'
+  import Header from '../Header'
+  import AsideMenu from '../AsideMenu'
+  import Footer from '../Footer'
 
   export default {
     name: 'Home',

@@ -1,5 +1,5 @@
 <template>
-  
+  <div class="text-4xl">LOGO</div>
 </template>
 
 <script>
@@ -9,6 +9,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 
 </style>

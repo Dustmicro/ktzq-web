@@ -1,5 +1,7 @@
 <template>
-  
+  <div class="text-5xl">
+    Football Management System
+  </div>
 </template>
 
 <script>
