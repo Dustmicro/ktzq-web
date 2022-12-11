@@ -1,4 +1,4 @@
-<template>
+<template >
   <PerSonManage></PerSonManage>
 </template>
 
