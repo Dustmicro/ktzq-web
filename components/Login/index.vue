@@ -8,10 +8,10 @@
       <div class="formbox">
         <el-form ref="form" :model="form" :rules="rules">
           <el-form-item prop="userName">
-            <el-input v-model="form.userName"></el-input>
+            <div>用户名</div><el-input v-model="form.userName"></el-input>
           </el-form-item>
           <el-form-item prop="passWords">
-            <el-input v-model="form.passWords"></el-input>
+            <div>密码</div><el-input v-model="form.passWords"></el-input>
           </el-form-item>
           <el-form-item>
             <div class="forget">
