@@ -7,23 +7,31 @@
 <script>
 import Login from "@/components/Login/index.vue"
 export default {
-  name:"ktzq_login",
-  components:{
+  name: "ktzq_login",
+  components: {
     Login
   },
-data(){
-return{
+  data() {
+    return {
 
-}
-},
-create(){
+    }
+  },
+  create() {
+    this.getdata();
 
-},
-methods:{
-
-}
+  },
+  methods: {
+    getdata() {
+      console.log(11);
+      let that = this;
+      that.$axios.get("/api/index.html").then(res => {
+        alert(res.data.code);
+      });
+    }
+  }
 }
 
 </script>
 <style scoped>
+
 </style>
