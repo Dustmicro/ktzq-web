@@ -8,8 +8,8 @@
 // 可以从 nuxt 中拿到 redirect 函数即可, 跳转: redirect('/user/login')
 export default function ({ $axios, redirect }) {
 
-    $axios.defaults.timeout = 10000;
-    $axios.defaults.baseURL = 'http://116.63.133.52:8080';
+    // $axios.defaults.timeout = 10000;
+    // $axios.defaults.baseURL = 'http://116.63.133.52:8080';
     
     // 在请求之前做一些事情
     $axios.onRequest(config => {
@@ -23,9 +23,8 @@ export default function ({ $axios, redirect }) {
             config.headers['token'] = token
             console.log("添加token的config:",config)
         }
-        
-        // return
-        return config
+
+        return
     })    
 
 
@@ -33,20 +32,20 @@ export default function ({ $axios, redirect }) {
     $axios.onResponse(response => {
 
         // response: 请求数据也在里面(啥都有)
-        console.log("response",response)
+        // console.log("response",response)
         
         // 例如: 判断一下状态码是否正常
-        switch(response.data.code) {
-            case 200 :
-                console.log('ok') 
-            break;
-            case 408 :
-                console.log('返回错误') 
-            break;
-            default:
-                console.log('未知错误') 
-            break;
-        }
+        // switch(response.data.code) {
+        //     case 200 :
+        //         console.log('ok') 
+        //     break;
+        //     case 408 :
+        //         console.log('返回错误') 
+        //     break;
+        //     default:
+        //         console.log('未知错误') 
+        //     break;
+        // }
 
         // return
         return response

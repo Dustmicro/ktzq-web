@@ -8,16 +8,17 @@
       <div class="formbox">
         <el-form ref="form" :model="form" :rules="rules">
           <el-form-item prop="userName">
-            <div>用户名</div><el-input v-model="form.userName"></el-input>
+            <div>用户名</div>
+            <el-input v-model="form.userName"></el-input>
           </el-form-item>
           <el-form-item prop="passWords">
-            <div>密码</div><el-input v-model="form.passWords"></el-input>
+            <div>密码</div>
+            <el-input v-model="form.passWords"></el-input>
           </el-form-item>
-          <el-form-item>
-            <div class="forget">
-              <a @click="goForget" href="#">忘记密码？</a>
-            </div>
-          </el-form-item>
+          <a @click="goForget" href="#">注册</a>
+          <div class="forget">
+            <a @click="goForget" href="#">忘记密码？</a>
+          </div>
           <el-form-item>
             <el-button class="buttonClass" @click="onSubmit('form')" round type="primary" size="medium"
               center>登录</el-button>
@@ -77,9 +78,9 @@ export default {
       });
     },
     getdata() {
-      console.log(11);
-      let that = this;
-      that.$axios.post('/api/login', { userName: "18781166142", password: "000000" }).then(res => {
+      console.log(11, '为什么不发请求');
+      // let that = this;
+      this.$axios.post('/login', { userName: "18781166142", password: "000000" }).then(res => {
         console.log('res', res);
       });
     }
@@ -95,7 +96,8 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgb(35, 80, 154)
+  background-image: url(../../static/bizi.jpeg);
+  background-size: cover;
 }
 
 .main {
@@ -103,7 +105,7 @@ export default {
   height: 422px;
   border: 1px solid (7, 47, 80);
   border-radius: 3%;
-  background-color: rgba(7, 47, 80, .9);
+  background-color: rgba(255, 255, 255, .9);
   padding: 0 10px;
 }
 
@@ -116,14 +118,12 @@ export default {
   float: right;
 }
 
-.buttonClass {
-  width: 280px;
-  /* height: 60px; */
-  margin: 0px 10px;
+a {
+  text-decoration: none;
 }
 
-a {
-  color: rgba(255, 0, 0, .5);
-  text-decoration: none;
+.buttonClass {
+  width: 280px;
+  margin-top: 20px;
 }
 </style>

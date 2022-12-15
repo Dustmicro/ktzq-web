@@ -39,8 +39,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    // 是否开启跨域代理配置 根据项目酌情选择
-    '@nuxtjs/proxy'
   ],
  
 axios: {
@@ -54,7 +52,7 @@ proxy: {
 		// 配置接口地址
 		target: "http://116.63.133.52:8080",//baseurl
 		pathRewrite: {
-			"^/api":"/"
+			"^/api/":"/"
 		},
 		changeOrigin: true
 	}
