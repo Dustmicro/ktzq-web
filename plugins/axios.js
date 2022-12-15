@@ -18,7 +18,7 @@ export default function ({ $axios, redirect }) {
         console.log("config:",config)
 
         // 例如: 在请求头中添加token
-        const token = ''
+        const token = window.localStorage.getItem("token")
         if(token) {
             config.headers['token'] = token
             console.log("添加token的config:",config)

@@ -2,18 +2,20 @@
   <div class="box">
     <div class="main">
       <div class="titlebox">
-        <h1 class="h1_title">开拓足球</h1>
-        <h3 class="h3_title">登录</h3>
+        <h1>用户登录</h1>
       </div>
       <div class="formbox">
         <el-form ref="form" :model="form" :rules="rules">
           <el-form-item prop="userName">
-            <div>用户名</div><el-input v-model="form.userName"></el-input>
+            <div>账号</div><el-input v-model="form.userName" placeholder="请输入手机号"></el-input>
           </el-form-item>
-          <el-form-item prop="passWords">
-            <div>密码</div><el-input v-model="form.passWords"></el-input>
+          <el-form-item prop="password">
+            <div>密码</div><el-input v-model="form.password" type="password" placeholder="请输入密码"></el-input>
           </el-form-item>
           <el-form-item>
+            <div class="register">
+              <a @click="goRegister" href="#">注册</a>
+            </div>
             <div class="forget">
               <a @click="goForget" href="#">忘记密码？</a>
             </div>
@@ -36,7 +38,7 @@ export default {
       rememberpwd: false,
       form: {
         userName: '',
-        passWord: '',
+        password: '',
         code: '',
         randomStr: '',
         codeimg: ''
@@ -45,7 +47,7 @@ export default {
         userName: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
         ],
-        passWord: [
+        password: [
           { required: true, message: '请输入密码', trigger: 'blur' },
         ],
       }
@@ -56,19 +58,22 @@ export default {
   },
   methods: {
     onSubmit(form) {
-      // this.$refs[form].validate((valid) => {
-      //   if (valid) {
-      //     console.log(this.form.userName,this.form.passWords);
-      //     window.localStorage.setItem("token",'后端返回的token')
-      //     var token = window.localStorage.getItem("token")
-      //     console.log('token:',token);
-      //     this.$nuxt.$loading.start()
-      //   } else {
-      //     console.log('error submit!!');
-      //     return false;
-      //   }
-      // });
-      this.getdata();
+      this.$refs[form].validate((valid) => {
+        if (valid) {
+          this.$axios.post('/login', { userName: this.form.userName, password: this.form.password }).then(res => {
+            if (res.status == 200) {
+              const token = res.headers.token
+              window.localStorage.setItem("token", token)
+              this.$router.push('/')
+            }
+          });
+          this.$nuxt.$loading.start()
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+      // this.getdata();
     },
     goForget() {
       this.$alert('管理员电话：18111629666', '请联系管理员重置密码', {
@@ -82,8 +87,6 @@ export default {
       });
     },
     getdata() {
-      console.log(11, '为什么不发请求');
-      // let that = this;
       this.$axios.post('/login', { userName: "18781166142", password: "000000" }).then(res => {
         console.log('res', res);
       });
@@ -113,14 +116,16 @@ export default {
   padding: 0 10px;
 }
 
-/* .h1_title {
-  margin: 0px auto 40px auto;
+.titlebox {
+  margin: 20px 0;
   text-align: center;
-  color: #505458;
+  font-weight: 600;
 }
+
 .h3_title {
   text-align: center;
-} */
+}
+
 .remember {
   margin: 0px 0px 35px 0px;
 }
@@ -129,8 +134,13 @@ export default {
   float: right;
 }
 
+.register {
+  float: left;
+}
+
 a {
   text-decoration: none;
+  color: blue;
 }
 
 .buttonClass {
