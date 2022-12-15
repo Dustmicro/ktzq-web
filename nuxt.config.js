@@ -24,7 +24,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '~/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -41,22 +42,23 @@ export default {
     // 是否开启跨域代理配置 根据项目酌情选择
     '@nuxtjs/proxy'
   ],
-  axios: {
-		// 开启允许跨域 根据项目酌情选择
-    	proxy: true,
-      credentials: true
-  	},
-    // 跨域配置 此处配置需酌情改变
-	proxy: {
-    '/api/': {
-      target: 'https://h5api.zhefengle.cn',//这个网站是开源的可以请求到数据的
-      pathRewrite: {
-        '^/api/': '/',
-        changeOrigin: true
-        }
-    }
-  },
-
+ 
+axios: {
+  timeout: 30000,//超时时间
+  baseurl: 'http://116.63.133.52:8080',//baseurl
+  prefix: '/api',//配置请求接口前缀
+  proxy: true,// 开启代理
+},
+proxy: {
+	"/api": {
+		// 配置接口地址
+		target: "http://116.63.133.52:8080",//baseurl
+		pathRewrite: {
+			"^/api":"/"
+		},
+		changeOrigin: true
+	}
+},
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
