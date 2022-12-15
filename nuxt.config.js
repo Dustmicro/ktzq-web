@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ktzq_web',
+    title: '开拓足球',
     htmlAttrs: {
       lang: 'en'
     },

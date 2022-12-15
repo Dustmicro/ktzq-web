@@ -9,7 +9,7 @@
 export default function ({ $axios, redirect }) {
 
 	$axios.defaults.timeout = 10000;
-    $axios.defaults.baseURL = 'http://xxx.xxx';
+    $axios.defaults.baseURL = 'http://localhost:7001';
     
     // 在请求之前做一些事情
     $axios.onRequest(config => {
