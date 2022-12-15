@@ -14,7 +14,7 @@
           </el-form-item>
           <el-form-item>
             <div class="register">
-              <a @click="goRegister" href="#">注册</a>
+              <a @click="dialogVisible = true" href="#">注册</a>
             </div>
             <div class="forget">
               <a @click="goForget" href="#">忘记密码？</a>
@@ -26,6 +26,33 @@
           </el-form-item>
         </el-form>
       </div>
+    </div>
+    <!-- 注册弹出框 -->
+    <div>
+      <el-dialog title="注册" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+        <el-form ref="registerForm" :model="registerForm" label-width="80px">
+          <el-form-item label="姓名：">
+            <el-input v-model="registerForm.name"></el-input>
+          </el-form-item>
+          <el-form-item label="性别：">
+            <el-input v-model="registerForm.name">
+            </el-input>
+          </el-form-item>
+          <el-form-item label="年龄：">
+            <el-input v-model="registerForm.name">
+            </el-input>
+          </el-form-item>
+          <el-form-item label="手机号：">
+            <el-input v-model="registerForm.name">
+            </el-input>
+          </el-form-item>
+
+          <el-form-item>
+            <el-button type="primary" @click="registerSubmit">注册</el-button>
+            <el-button>取消</el-button>
+          </el-form-item>
+        </el-form>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -50,6 +77,10 @@ export default {
         password: [
           { required: true, message: '请输入密码', trigger: 'blur' },
         ],
+      },
+      dialogVisible: false,
+      registerForm: {
+        name: ''
       }
     }
   },
@@ -57,6 +88,9 @@ export default {
 
   },
   methods: {
+    registerSubmit() {
+      console.log('registerSubmit!');
+    },
     onSubmit(form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
