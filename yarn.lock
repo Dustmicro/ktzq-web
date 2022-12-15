@@ -5520,6 +5520,11 @@
   dependencies:
     "fs-monkey" "^1.0.3"
 
+"memoize-one@^6.0.0":
+  "integrity" "sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw=="
+  "resolved" "https://registry.npmmirror.com/memoize-one/-/memoize-one-6.0.0.tgz"
+  "version" "6.0.0"
+
 "memory-fs@^0.4.1":
   "integrity" "sha512-cda4JKCxReDXFXRqOHPQscuIYg1PvxbE2S2GP45rnwfEK+vZaXC8C1OFvdHIbgw0DLzowXGVoxLaAmlgRy14GQ=="
   "resolved" "https://registry.npmmirror.com/memory-fs/-/memory-fs-0.4.1.tgz"

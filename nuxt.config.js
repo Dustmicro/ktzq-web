@@ -40,23 +40,23 @@ export default {
   modules: [
     '@nuxtjs/axios',
   ],
- 
-axios: {
-  timeout: 30000,//超时时间
-  baseurl: 'http://116.63.133.52:8080',//baseurl
-  prefix: '/api',//配置请求接口前缀
-  proxy: true,// 开启代理
-},
-proxy: {
-	"/api": {
-		// 配置接口地址
-		target: "http://116.63.133.52:8080",//baseurl
-		pathRewrite: {
-			"^/api/":"/"
-		},
-		changeOrigin: true
-	}
-},
+
+  axios: {
+    prefix: '/api',//配置请求接口前缀
+    proxy: true,// 开启代理
+  },
+
+  proxy: {
+    "/api": {
+      // 配置接口地址 http://116.63.133.52:8080
+      target: process.env.PUBLIC_BACKEND_URL + ':' + process.env.PUBLIC_PORT,
+      pathRewrite: {
+        "^/api/":"/"
+      },
+      changeOrigin: true
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],

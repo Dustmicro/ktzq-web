@@ -28,6 +28,9 @@
   </div>
 </template>
 <script>
+
+import { service } from '@/plugins/axios'
+
 export default {
   data() {
     return {
@@ -81,12 +84,21 @@ export default {
         // }
       });
     },
-    getdata() {
+    async getdata() {
       console.log(11, '为什么不发请求');
       // let that = this;
-      this.$axios.post('/login', { userName: "18781166142", password: "000000" }).then(res => {
-        console.log('res', res);
-      });
+      // this.$axios.post('/login', { userName: "18781166142", password: "000000" }).then(res => {
+      //   console.log('res', res);
+      // });
+      await service.post(
+        '/api/login',
+        {
+            userName: '18781166142',
+            password: '000000'
+        }
+      ).then(res => {
+        console.log(res);
+      })
     }
   }
 }

@@ -13,6 +13,7 @@
     "core-js": "^3.25.3",
     "element-ui": "^2.15.10",
     "file-saver": "^2.0.5",
+    "memoize-one": "^6.0.0",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-json-excel": "^0.3.0",
