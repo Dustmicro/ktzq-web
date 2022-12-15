@@ -16,18 +16,11 @@ export default {
 
     }
   },
-  create() {
-    this.getdata();
+  created() {
 
   },
   methods: {
-    getdata() {
-      console.log(11);
-      let that = this;
-      that.$axios.get("/api/index.html").then(res => {
-        alert(res.data.code);
-      });
-    }
+
   }
 }
 

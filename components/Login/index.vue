@@ -19,7 +19,8 @@
             </div>
           </el-form-item>
           <el-form-item>
-            <el-button class="buttonClass" @click="onSubmit('form')" round type="primary" size="medium" center>登录</el-button>
+            <el-button class="buttonClass" @click="onSubmit('form')" round type="primary" size="medium"
+              center>登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -50,30 +51,38 @@ export default {
   },
   methods: {
     onSubmit(form) {
-        this.$refs[form].validate((valid) => {
-          if (valid) {
-            console.log(this.form.userName,this.form.passWords);
-            window.localStorage.setItem("token",'后端返回的token')
-            var token = window.localStorage.getItem("token")
-            console.log('token:',token);
-            this.$nuxt.$loading.start()
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
+      // this.$refs[form].validate((valid) => {
+      //   if (valid) {
+      //     console.log(this.form.userName,this.form.passWords);
+      //     window.localStorage.setItem("token",'后端返回的token')
+      //     var token = window.localStorage.getItem("token")
+      //     console.log('token:',token);
+      //     this.$nuxt.$loading.start()
+      //   } else {
+      //     console.log('error submit!!');
+      //     return false;
+      //   }
+      // });
+      this.getdata();
+    },
     goForget() {
       this.$alert('管理员电话：18111629666', '请联系管理员重置密码', {
-          confirmButtonText: '确定',
-          // callback: action => {
-          //   this.$message({
-          //     type: 'info',
-          //     message: `action: ${ action }`
-          //   });
-          // }
-        });
+        confirmButtonText: '确定',
+        // callback: action => {
+        //   this.$message({
+        //     type: 'info',
+        //     message: `action: ${ action }`
+        //   });
+        // }
+      });
     },
+    getdata() {
+      console.log(11);
+      let that = this;
+      that.$axios.post('/api/login', { userName: "18781166142", password: "000000" }).then(res => {
+        console.log('res', res);
+      });
+    }
   }
 }
 
