@@ -8,17 +8,16 @@
       <div class="formbox">
         <el-form ref="form" :model="form" :rules="rules">
           <el-form-item prop="userName">
-            <div>用户名</div>
-            <el-input v-model="form.userName"></el-input>
+            <div>用户名</div><el-input v-model="form.userName"></el-input>
           </el-form-item>
           <el-form-item prop="passWords">
-            <div>密码</div>
-            <el-input v-model="form.passWords"></el-input>
+            <div>密码</div><el-input v-model="form.passWords"></el-input>
           </el-form-item>
-          <a @click="goForget" href="#">注册</a>
-          <div class="forget">
-            <a @click="goForget" href="#">忘记密码？</a>
-          </div>
+          <el-form-item>
+            <div class="forget">
+              <a @click="goForget" href="#">忘记密码？</a>
+            </div>
+          </el-form-item>
           <el-form-item>
             <el-button class="buttonClass" @click="onSubmit('form')" round type="primary" size="medium"
               center>登录</el-button>
@@ -28,20 +27,25 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
+      logining: false,
+      // 记住密码
+      rememberpwd: false,
       form: {
         userName: '',
-        passWords: ''
+        passWord: '',
+        code: '',
+        randomStr: '',
+        codeimg: ''
       },
       rules: {
         userName: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
         ],
-        passWords: [
+        passWord: [
           { required: true, message: '请输入密码', trigger: 'blur' },
         ],
       }
@@ -105,13 +109,20 @@ export default {
   height: 422px;
   border: 1px solid (7, 47, 80);
   border-radius: 3%;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(243, 246, 248, 0.9);
   padding: 0 10px;
 }
 
-.h1_title,
+/* .h1_title {
+  margin: 0px auto 40px auto;
+  text-align: center;
+  color: #505458;
+}
 .h3_title {
   text-align: center;
+} */
+.remember {
+  margin: 0px 0px 35px 0px;
 }
 
 .forget {
