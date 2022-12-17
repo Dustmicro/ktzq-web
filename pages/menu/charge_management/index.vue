@@ -6,7 +6,7 @@
         <div class="h-full w-1/12">
           <AsideMenu></AsideMenu>
         </div>
-        <div class="p-10 pb-0 flex-1">
+        <div class="p-10 flex-1">
           <NuxtChild />
         </div>
       </div>
