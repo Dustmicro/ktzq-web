@@ -7,7 +7,7 @@
       <div class="formbox">
         <el-form ref="form" :model="form" :rules="rules">
           <el-form-item prop="userName">
-            <div>账号</div><el-input v-model="form.userName" placeholder="请输入手机号"></el-input>
+            <div>账号</div><el-input v-model="form.userName" placeholder="请输入账号"></el-input>
           </el-form-item>
           <el-form-item prop="password">
             <div>密码</div><el-input v-model="form.password" type="password" placeholder="请输入密码"></el-input>
@@ -23,8 +23,13 @@
           <el-form-item>
             <el-button class="buttonClass" @click="onSubmit('form')" round type="primary" size="medium"
               center>登录</el-button>
+
+
           </el-form-item>
         </el-form>
+        <div class="teamName">
+          <span>©2020-2023 西昌学院403</span>
+        </div>
       </div>
     </div>
     <!-- 注册弹出框 -->
@@ -75,7 +80,7 @@ export default {
       },
       rules: {
         userName: [
-          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { required: true, message: '请输入账号', trigger: 'blur' },
         ],
         password: [
           { required: true, message: '请输入密码', trigger: 'blur' },
@@ -91,6 +96,7 @@ export default {
 
   },
   methods: {
+    handleClose() { },
     registerSubmit() {
       console.log('registerSubmit!');
     },
@@ -132,8 +138,8 @@ export default {
       await service.post(
         '/api/login',
         {
-            userName: '18781166142',
-            password: '000000'
+          userName: '18781166142',
+          password: '000000'
         }
       ).then(res => {
         console.log(res);
@@ -165,7 +171,7 @@ export default {
 }
 
 .titlebox {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   text-align: center;
   font-weight: 600;
 }
@@ -193,6 +199,14 @@ a {
 
 .buttonClass {
   width: 280px;
-  margin-top: 20px;
+}
+
+.teamName {
+  width: 100%;
+  display: inline-block;
+  padding: 5px 0 0px 50px;
+  border-top: 1px solid beige;
+  font-weight: 400;
+  font-size: 14px;
 }
 </style>

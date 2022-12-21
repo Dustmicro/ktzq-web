@@ -7,6 +7,7 @@ specifiers:
   core-js: ^3.25.3
   element-ui: ^2.15.10
   file-saver: ^2.0.5
+  memoize-one: ^6.0.0
   nuxt: ^2.15.8
   postcss: ^8.4.19
   script-loader: ^0.7.2
@@ -23,6 +24,7 @@ dependencies:
   core-js: 3.26.1
   element-ui: 2.15.12_vue@2.7.14
   file-saver: 2.0.5
+  memoize-one: 6.0.0
   nuxt: 2.15.8_vue@2.7.14
   vue: 2.7.14
   vue-json-excel: 0.3.0
@@ -5872,6 +5874,10 @@ packages:
     engines: {node: '>= 4.0.0'}
     dependencies:
       fs-monkey: 1.0.3
+    dev: false
+
+  /memoize-one/6.0.0:
+    resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
     dev: false
 
   /memory-fs/0.4.1:
